@@ -54,7 +54,7 @@ info = {
 
 def get_latest(api_hostname: Optional[str] = None,
                path: str = '/ma/latest-url',
-               scheme: str = 'http',
+               scheme: str = 'https',
                timeout: int = 5,
                username: Optional[str] = None,
                password: Optional[str] = None) -> dict:
