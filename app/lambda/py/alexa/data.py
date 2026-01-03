@@ -54,7 +54,7 @@ info = {
 
 def get_latest(api_hostname: Optional[str] = None,
                path: str = '/ma/latest-url',
-               scheme: str = 'https',
+               scheme: str = 'http',
                timeout: int = 5,
                username: Optional[str] = None,
                password: Optional[str] = None) -> dict:
@@ -117,6 +117,7 @@ def get_latest(api_hostname: Optional[str] = None,
             if stream_url and isinstance(stream_url, str):
                 try:
                     stream_url = re.sub(r'(?i)\.flac(?=$|\?)', '.mp3', stream_url)
+                    stream_url = re.sub(r'^http://', 'https://', stream_url)
                 except Exception:
                     logging.exception('Failed rewriting stream URL extension for %s', stream_url)
 
