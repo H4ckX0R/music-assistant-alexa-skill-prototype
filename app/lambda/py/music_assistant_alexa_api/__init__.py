@@ -64,6 +64,9 @@ def create_blueprint():
             return jsonify({'error': 'Missing required fields'}), 400
         if stream_url and isinstance(stream_url, str):
             stream_url = re.sub(r'^http://', 'https://', stream_url)
+            stream_url = re.sub(r'^music.h4ckdata.es:8098', 'music-stream.h4ckdata.es', stream_url)
+
+        
 
         _store = {
             'streamUrl': stream_url,
